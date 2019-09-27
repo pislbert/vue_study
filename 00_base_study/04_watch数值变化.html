@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="utf-8"></script>	
+	</head>
+	<body>
+		<div id="app">
+			{{ a }}
+			{{ b }}
+		</div>
+		<script type="text/javascript">
+			data = { a : 1, b: 3 }  // 响应必须提前声明
+			var vm = new Vue({		// 一般定义为vm 代表 view - model 模型
+				el: "#app",
+				data:data
+			})
+			data.b = 2
+			vm.$data.b = 22
+			vm.$watch('b', function(newVal, oldVal){
+				console.log("new val:", newVal)
+				console.log("old val:", oldVal)
+			})
+			changeFunc = function(){
+				vm.$data.b += 1
+				setTimeout(changeFunc, 1000)
+			}
+			changeFunc()
+			
+			
+		</script>
+	</body>
+</html>

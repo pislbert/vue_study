@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+	<title></title>
+</head>
+<body>
+<div id="app">
+	<bt-count><h2>hehe</h2></bt-count>
+	<p></p>
+	<bt-count></bt-count>
+</div>
+<script type="text/javascript">
+	// 组件插槽用<slot></slot>来秒速,这样就可以在组件内部声明内容了
+	Vue.component('bt-count', {
+		data: function(){
+			return {
+				count:0
+			}
+		},
+		template:'<button v-on:click="count++"><slot></slot> count {{count}}</button>'
+	})
+	var vm = new Vue({
+		el:"#app",
+	})
+</script>
+</body>
+</html>

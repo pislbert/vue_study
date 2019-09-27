@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="app">
+	<h1 v-show="ok">Hello!</h1>
+	
+	<h1 v-show="ok2">Hello 2!</h1>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+	el : "#app",
+	data : {
+		ok : false,	// 虽然隐藏了,但会始终存在于dom中
+		ok2 : true
+	},
+});
+// v-if 惰性渲染,切换开销大
+// v-show 初始化开销大
+</script>
+<style type="text/css">
+
+</style>
+</body>
+</html>

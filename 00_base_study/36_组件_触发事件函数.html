@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+	<title></title>
+</head>
+<body>
+<div id="app">
+	<bt-count title="haha" @clicknow="say">
+	</bt-count>
+	<p></p>
+	<bt-count title="hehe"></bt-count>
+</div>
+<script type="text/javascript">
+	// 模板基础, 必须包含数据及模板, 主键可以复用
+	Vue.component('bt-count', {
+		props:["title"],
+		data: function(){
+			return {
+				count:0
+			}
+		},
+		// 模板必须有根节点,所以多个html标签显示可以用div包裹起来
+		template:'<div><p>hi</p><button v-on:click="func">title: {{title}}, get count {{count}}</button></div>',
+		methods:{
+			func:function(){
+				this.count++
+				// 触发函数,可带参数
+				this.$emit('clicknow', this.count, "哈哈")
+			}
+		}
+	})
+	var vm = new Vue({
+		el:"#app",
+		methods:{
+			say:function(e1,e2){
+				console.log(e1,e2)
+			}
+		}
+			
+	})
+</script>
+</body>
+</html>

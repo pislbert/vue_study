@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="app">
+	<!-- 无修饰符stop指定，导致子集执行后会再次执行父级事件 -->
+	<div @click="click1">
+		<div @click="click2">
+			click me
+		</div>
+	</div>
+	
+	<div @click="clickParent">
+		<div @click.stop="clickChild">
+			click me 2
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+	el : "#app",
+	data : {
+		url: "http://127.0.0.1"
+	},
+	methods:{
+		click1: function(){
+			console.log("click 1")
+		},
+		click2: function(){
+			console.log("click 2")
+		},
+		clickParent: function(){
+			console.log("clickParent")
+		},
+		clickChild: function(){
+			console.log("clickChild")
+		}
+	}
+});
+</script>
+</body>
+</html>

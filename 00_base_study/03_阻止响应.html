@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="utf-8"></script>	
+	</head>
+	<body>
+		<div id="app">
+			{{ a }}
+			{{ b }}
+		</div>
+		<script type="text/javascript">
+			data = { a : 1, b: 3 }  // 响应必须提前声明
+			Object.freeze(data)		// 阻止了响应
+			var app = new Vue({
+				el: "#app",
+				data:data
+			})
+			data.b = 2
+		</script>
+	</body>
+</html>

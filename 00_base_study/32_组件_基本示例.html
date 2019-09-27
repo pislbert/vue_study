@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+	<title></title>
+</head>
+<body>
+<div id="app">
+	<bt-count></bt-count>
+	<p></p>
+	<bt-count></bt-count>
+</div>
+<script type="text/javascript">
+	// 模板基础, 必须包含数据及模板, 主键可以复用
+	Vue.component('bt-count', {
+		data: function(){
+			return {
+				count:0
+			}
+		},
+		template:'<button v-on:click="count++">get count {{count}}</button>'
+	})
+	var vm = new Vue({
+		el:"#app",
+	})
+</script>
+</body>
+</html>
