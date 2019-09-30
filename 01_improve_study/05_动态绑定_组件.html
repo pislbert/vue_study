@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+	<title></title>
+</head>
+<body>
+<div id="app">
+	<my-component class="baz boo"></my-component>
+</div>
+<script type="text/javascript">
+//最终被渲染为 <p class="foo bar baz boo">Hi</p>
+Vue.component('my-component', {
+  template: '<p class="foo bar">Hi</p>'
+})
+var vm = new Vue({
+	el:"#app"
+})
+</script>
+</body>
+</html>

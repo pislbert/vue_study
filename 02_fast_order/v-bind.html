@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="app">
+	<div v-bind:id="dynamicId">goood my id is {{dynamicId}}</div>
+</div>
+<script type="text/javascript">
+	// Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令, 多个特性用{}来指定多个
+var vm = new Vue({
+	el : "#app",
+	data : {
+		dynamicId : "test",
+	}
+});
+</script>
+<style>
+#test{
+	color: #FF0000;
+}
+</style>
+</body>
+</html>

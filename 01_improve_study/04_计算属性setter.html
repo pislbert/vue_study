@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="utf-8"></script>	
+	</head>
+<body>
+<div id="demo">{{ fullName }}
+	<br>
+	<input id="name" placeholder="请输入全名" ref="nameinput">
+	<button v-on:click="modify" type="button">修改</button>
+</div>
+<script type="text/javascript">
+	
+
+// 计算式可以避免此种命令时重复,效率更高
+var vm2 = new Vue({
+  el: '#demo',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+  },
+  computed: {
+    fullName: {
+		get:function () {
+		  return this.firstName + ' ' + this.lastName
+		},
+		set:function(val){
+			var names = val.split(' ')
+			this.firstName = names[0]
+			this.lastName = names[names.length - 1]
+		}
+	}
+  },
+  methods:{
+	  modify: function(){
+		  this.fullName = this.$refs.nameinput.value
+	  }
+  }
+})
+
+</script>
+</body>
+</html>

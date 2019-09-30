@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<script src="vue.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="vue.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div id="app" v-once>
@@ -11,10 +11,13 @@
 			{{ b }}
 		</div>
 		<script type="text/javascript">
-			data = { a : 1, b: 3 }  // 响应必须提前声明
+			data = {
+				a: 1,
+				b: 3
+			} // 响应必须提前声明
 			var app = new Vue({
 				el: "#app",
-				data:data
+				data: data
 			})
 			data.b = 2
 			// app.data.a = 3  不能使用data直接访问应使用 $访问内部

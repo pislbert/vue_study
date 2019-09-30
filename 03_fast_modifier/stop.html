@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="vue.js" type="text/javascript" charset="utf-8"></script>	
+</head>
+<body>
+<div id="app">
+	<div id="base">
+		<div v-on:click="count += 2">
+			<button v-on:click="count += 1">click {{count}}</button>
+		</div>
+	</div>
+	<div id="base">
+		<div v-on:click="count += 2">
+			<button v-on:click.stop="count += 1">click {{count}}</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	//  修饰符stop阻止子集执行后会再次执行父级事件
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			count: 1
+		}
+	})
+</script>
+</body>
+</html>
